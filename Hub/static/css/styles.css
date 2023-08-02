@@ -1,0 +1,70 @@
+/* static/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+}
+
+.login-form label,
+.login-form input {
+    margin-right: 10px;
+    border: none;
+    padding: 5px;
+    color: white;
+    background-color: #333;
+}
+
+.login-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+
+.register-button {
+    margin-left: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.navbar a:last-child {
+    margin-right: 0;
+}
+
+.navbar a:first-child {
+    margin-right: 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 20px;
+}
