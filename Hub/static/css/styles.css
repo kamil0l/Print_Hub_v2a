@@ -148,3 +148,43 @@ body {
     text-align: center;
     font-weight: bold;
 }
+
+.left-container,
+.right-container {
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 20px;
+
+
+}
+
+.left-container {
+    background-color: #f2f2f2;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+    width: auto; /* Dopasowanie szerokości do zawartości */
+    flex-shrink: 0; /* Zapobiega zmniejszaniu kontenera przy małej zawartości */
+}
+
+
+.right-container {
+    background-color: #fff;
+}
+
+.menu-link {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu-link:hover {
+    background-color: #ddd;
+}
