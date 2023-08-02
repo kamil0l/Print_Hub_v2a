@@ -20,3 +20,4 @@ from movie_app import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('addFilament/', views.AddFilament.as_view, name='add_filament'),

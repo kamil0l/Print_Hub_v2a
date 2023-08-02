@@ -10,44 +10,55 @@ class IndexView(View):
 class PrintingListView(View):
 
     def get(self, request):
-        printings = Printing.objects.all()
+        """printings = Printing.objects.all()"""
         return render(request, 'printing_list.html')
 
 class PrinterListView(View):
 
     def get(self, request):
-        printers = Printer.objects.all()
+        """printers = Printer.objects.all()"""
         return render(request, 'printer_list.html')
 
 class AddPrinter(View):
 
     def get(self, request):
-        form = AddPrinterForm()
+        """form = AddPrinterForm()"""
         return render(request, 'add_printer.html')
 
 
 class ProjectListView(View):
 
     def get(self, request):
-        projects = Project.objects.all()
+        """projects = Project.objects.all()"""
         return render(request, 'project_list.html')
 
 class AddProject(View):
 
     def get(self, request):
-        form = AddProjectForm()
+        """form = AddProjectForm()"""
         return render(request, 'add_project.html')
 
 class FilamentListView(View):
 
     def get(self, request):
-        filaments = Filament.object.all()
+        """filaments = Filament.object.all()"""
         return render(request, 'filament_liest.html')
 
 class AddFilament(View):
     def get(self, request):
-        form = AddFilamentForm()
+        """form = AddFilamentForm()"""
         return render(request, 'add_filament.html')
+
+class PartsList(View):
+    def get(self, request):
+        """parts = Parts.object.all()"""
+        return render(request, 'parts.html')
+
+class AddParts(View):
+    def get(self, request):
+        """form = AddPartsForm()"""
+        return render(request, 'add_parts.html')
+
 
 
 
