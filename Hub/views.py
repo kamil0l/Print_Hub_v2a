@@ -7,13 +7,13 @@ class IndexView(View):
     def get(self, request):
         return render(request, 'base.html')
 
-class PrintingListView(View):
+class PrintingList(View):
 
     def get(self, request):
         """printings = Printing.objects.all()"""
         return render(request, 'printing_list.html')
 
-class PrinterListView(View):
+class PrinterList(View):
 
     def get(self, request):
         """printers = Printer.objects.all()"""
@@ -26,7 +26,7 @@ class AddPrinter(View):
         return render(request, 'add_printer.html')
 
 
-class ProjectListView(View):
+class ProjectList(View):
 
     def get(self, request):
         """projects = Project.objects.all()"""
@@ -38,7 +38,7 @@ class AddProject(View):
         """form = AddProjectForm()"""
         return render(request, 'add_project.html')
 
-class FilamentListView(View):
+class FilamentList(View):
 
     def get(self, request):
         """filaments = Filament.object.all()"""
