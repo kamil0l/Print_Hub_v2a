@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.urls import reverse
 from .forms import FilamentForm
@@ -74,5 +74,18 @@ class DeleteFilament(View):
         filament.delete()
         return redirect('filament')
 
+class EditFilament(View):
+    def get(self, request, filament_id):
+        filament = get_object_or_404(Filament, id=filament_id)
+        form = FilamentForm(instance=filament)
+        return render(request, 'edit_filament.html', {'form': form, 'filament': filament})
+
+    def post(self, request, filament_id):
+        filament = get_object_or_404(Filament, id=filament_id)
+        form = FilamentForm(request.POST, instance=filament)
+        if form.is_valid():
+            form.save()
+            return redirect('filament')
+        return render(request, 'edit_filament.html', {'form': form, 'filament': filament})
 
 

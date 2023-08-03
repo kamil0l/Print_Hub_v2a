@@ -47,6 +47,8 @@
                         <th>Temp. min</th>
                         <th>Temp. max</th>
                         <th>Waga</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +64,15 @@
                         <td>
                             <form method="post" action="{% url 'delete_filament' filament.id %}">
                                 {% csrf_token %}
-                                <button type="submit">Usuń</button>
+                                <button type="submit" class="delete-button">Usuń</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="{% url 'delete_filament' filament.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">
+                                    <a href="{% url 'edit_filament' filament.id %}" class="delete-button">Edytuj</a>
+                                </button>
                             </form>
                         </td>
                     </tr>
