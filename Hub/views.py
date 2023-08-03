@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.urls import reverse
+from .forms import FilamentForm
 
 # Create your views here.
 class IndexView(View):
@@ -47,8 +48,15 @@ class FilamentList(View):
 
 class AddFilament(View):
     def get(self, request):
-        """form = AddFilamentForm()"""
-        return render(request, 'add_filament.html')
+        form = FilamentForm()
+        return render(request, 'add_filament.html', {'form': form})
+
+    def post(self, request):
+        form = FilamentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('filament')
+        return render(request, 'add_filament.html', {'form': form})
 
 class PartsList(View):
     def get(self, request):

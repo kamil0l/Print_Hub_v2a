@@ -188,3 +188,25 @@ body {
 .menu-link:hover {
     background-color: #ddd;
 }
+
+.submit-addFilament-button {
+    display: block;
+    margin: 0 auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.submit-addFilament-button:hover {
+    background-color: #45a049;
+}
+
+.form-container {
+    text-align: right;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
