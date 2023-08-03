@@ -53,7 +53,7 @@ class EditPrinter(View):
         form = PrinterForm(request.POST, instance=printer)
         if form.is_valid():
             form.save()
-            return redirect('printer')
+            return redirect('printer_list')
         return render(request, 'edit_printer.html', {'form': form, 'printer': printer})
 
 
