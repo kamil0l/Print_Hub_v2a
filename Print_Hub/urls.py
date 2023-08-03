@@ -31,6 +31,7 @@ urlpatterns = [
     path('addFilament/', views.AddFilament.as_view(), name= 'add_filament'),
     path('parts/', views.PartsList.as_view(), name='parts'),
     path('addParts/', views.AddParts.as_view(), name='add_parts'),
+    path('delete_filament/<int:filament_id>/', views.DeleteFilament.as_view(), name='delete_filament'),
 
 
 ]

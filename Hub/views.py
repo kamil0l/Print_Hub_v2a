@@ -4,7 +4,6 @@ from django.urls import reverse
 from .forms import FilamentForm
 from .models import Filament
 
-# Create your views here.
 class IndexView(View):
 
     def get(self, request):
@@ -69,7 +68,11 @@ class AddParts(View):
         """form = AddPartsForm()"""
         return render(request, 'add_parts.html')
 
-
+class DeleteFilament(View):
+    def post(self, request, filament_id):
+        filament = Filament.objects.get(id=filament_id)
+        filament.delete()
+        return redirect('filament')
 
 
 

@@ -59,6 +59,12 @@
                         <td>{{ filament.temperature_min }}</td>
                         <td>{{ filament.temperature_max }}</td>
                         <td>{{ filament.weight }}</td>
+                        <td>
+                            <form method="post" action="{% url 'delete_filament' filament.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Usuń</button>
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
