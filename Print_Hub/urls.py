@@ -33,6 +33,6 @@ urlpatterns = [
     path('addParts/', views.AddParts.as_view(), name='add_parts'),
     path('delete_filament/<int:filament_id>/', views.DeleteFilament.as_view(), name='delete_filament'),
     path('edit_filament/<int:filament_id>/', views.EditFilament.as_view(), name='edit_filament'),
-
-
+    path('delete_printer/<int:printer_id>/', views.DeletePrinter.as_view(), name='delete_printer'),
+    path('edit_printer/<int:printer_id>/', views.EditPrinter.as_view(), name='edit_printer'),
 ]

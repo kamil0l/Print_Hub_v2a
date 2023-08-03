@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.urls import reverse
-from .forms import FilamentForm
-from .models import Filament
+from .forms import FilamentForm, PrinterForm
+from .models import Filament, Printer
 
 class IndexView(View):
 
@@ -13,19 +13,48 @@ class PrintingList(View):
 
     def get(self, request):
         """printings = Printing.objects.all()"""
-        return render(request, 'printing_list.html')
+        return render(request, 'printing_list.html' )
 
 class PrinterList(View):
 
     def get(self, request):
-        """printers = Printer.objects.all()"""
-        return render(request, 'printer_list.html')
+        printers = Printer.objects.all()
+        return render(request, 'printer_list.html', {'printers': printers})
 
 class AddPrinter(View):
 
     def get(self, request):
-        """form = AddPrinterForm()"""
-        return render(request, 'add_printer.html')
+        form = PrinterForm()
+        return render(request, 'add_printer.html', {'form': form})
+
+    def post(self, request):
+        form = PrinterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('printer_list')
+        return render(request, 'add_printer.html', {'form': form})
+
+
+class DeletePrinter(View):
+    def post(self, request, printer_id):
+        printer = Printer.objects.get(id=printer_id)
+        printer.delete()
+        return redirect('printer')
+
+class EditPrinter(View):
+
+    def get(self, request, printer_id):
+        printer = get_object_or_404(Printer, id=printer_id)
+        form = PrinterForm(instance=printer)
+        return render(request, 'edit_printer.html', {'form': form, 'printer': printer})
+
+    def post(self, request, printer_id):
+        printer = get_object_or_404(Printer, id=printer_id)
+        form = PrinterForm(request.POST, instance=printer)
+        if form.is_valid():
+            form.save()
+            return redirect('printer')
+        return render(request, 'edit_printer.html', {'form': form, 'printer': printer})
 
 
 class ProjectList(View):

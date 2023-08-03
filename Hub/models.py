@@ -7,7 +7,7 @@ class Printer(models.Model):
     head = models.IntegerField()
     max_temperature = models.IntegerField()
     max_speed = models.IntegerField()
-    materials = ()
+
 
 class Filament(models.Model):
     name = models.CharField(max_length=123)

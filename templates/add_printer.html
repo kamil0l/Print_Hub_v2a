@@ -37,7 +37,35 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <form method="post" class="form-container">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="{{ form.name.id_for_label }}">Name:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.head.id_for_label }}">Liczba głowic:</label>
+                    {{ form.head }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.max_temperature.id_for_label }}">Maksymalna temperatura:</label>
+                    {{ form.max_temperature }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.max_speed.id_for_label }}">Maks. prędkość druku:</label>
+                    {{ form.max_speed }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.weight.id_for_label }}">Weight:</label>
+                    {{ form.weight }}
+                </div>
+
+                <button type="submit" class="submit-addFilament-button">Dodaj drukarkę</button>
+            </form>
         </div>
     </div>
 
