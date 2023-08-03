@@ -9,6 +9,9 @@ class Printer(models.Model):
     max_speed = models.IntegerField()
     image = models.ImageField(upload_to='printer_images/', null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Filament(models.Model):
     name = models.CharField(max_length=123)

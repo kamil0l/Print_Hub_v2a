@@ -5,6 +5,7 @@ from Hub import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name= 'index'),
@@ -21,6 +22,7 @@ urlpatterns = [
     path('edit_filament/<int:filament_id>/', views.EditFilament.as_view(), name='edit_filament'),
     path('delete_printer/<int:printer_id>/', views.DeletePrinter.as_view(), name='delete_printer'),
     path('edit_printer/<int:printer_id>/', views.EditPrinter.as_view(), name='edit_printer'),
+    path('delete_part/<int:part_id>/', views.DeletePart.as_view(), name='delete_part'),
 ]
 
 if settings.DEBUG:

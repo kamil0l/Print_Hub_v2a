@@ -37,8 +37,34 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <table class="printer-table">
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Opis</th>
+                        <th>Drukarka</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for part in parts %}
+                    <tr>
+                        <td>{{ part.name }}</td>
+                        <td>{{ part.description }}</td>
+                        <td>{{ part.printer }}</td>
+                        <td>
+                            <form method="post" action="{% url 'delete_part' part.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
         </div>
+
     </div>
 
     <div class="bottom-bar">

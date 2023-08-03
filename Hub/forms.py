@@ -1,6 +1,6 @@
 # w pliku forms.py
 from django import forms
-from .models import Filament, Printer
+from .models import Filament, Printer, Parts
 
 class FilamentForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,10 @@ class PrinterForm(forms.ModelForm):
     class Meta:
         model = Printer
         fields = ('name', 'head', 'max_temperature', 'max_speed', 'image')
+
+class PartsForm(forms.ModelForm):
+    printer = forms.ModelChoiceField(queryset=Printer.objects.all(), required=False)
+
+    class Meta:
+        model = Parts
+        fields = ('name', 'description', 'printer')

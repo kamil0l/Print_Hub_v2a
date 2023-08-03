@@ -37,7 +37,25 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <form method="post" class="form-container">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="{{ form.name.id_for_label }}">Nazwa części:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.description.id_for_label }}">Opis części:</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ form.printer.id_for_label }}">Przypisz do drukarki:</label>
+                    {{ form.printer }}
+                </div>
+
+                <button type="submit" class="submit-addFilament-button">Dodaj część</button>
+            </form>
         </div>
     </div>
 
