@@ -39,7 +39,7 @@ class DeletePrinter(View):
     def post(self, request, printer_id):
         printer = Printer.objects.get(id=printer_id)
         printer.delete()
-        return redirect('printer')
+        return redirect('printer_list')
 
 class EditPrinter(View):
 
