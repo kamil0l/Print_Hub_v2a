@@ -28,7 +28,7 @@ class AddPrinter(View):
         return render(request, 'add_printer.html', {'form': form})
 
     def post(self, request):
-        form = PrinterForm(request.POST)
+        form = PrinterForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('printer_list')

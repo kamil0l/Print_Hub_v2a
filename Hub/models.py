@@ -7,6 +7,7 @@ class Printer(models.Model):
     head = models.IntegerField()
     max_temperature = models.IntegerField()
     max_speed = models.IntegerField()
+    image = models.ImageField(upload_to='printer_images/', null=True, blank=True)
 
 
 class Filament(models.Model):

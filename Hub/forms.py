@@ -10,4 +10,4 @@ class FilamentForm(forms.ModelForm):
 class PrinterForm(forms.ModelForm):
     class Meta:
         model = Printer
-        fields = ('name', 'head', 'max_temperature', 'max_speed')
+        fields = ('name', 'head', 'max_temperature', 'max_speed', 'image')

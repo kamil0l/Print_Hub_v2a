@@ -37,7 +37,7 @@
         </div>
 
         <div class="right-container">
-            <form method="post" class="form-container">
+            <form method="post" class="form-container" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-field">
                     <label for="{{ form.name.id_for_label }}">Name:</label>
@@ -60,8 +60,8 @@
                 </div>
 
                 <div class="form-field">
-                    <label for="{{ form.weight.id_for_label }}">Weight:</label>
-                    {{ form.weight }}
+                    <label for="{{ form.image.id_for_label }}">Zdjęcie drukarki:</label>
+                    {{ form.image }}
                 </div>
 
                 <button type="submit" class="submit-addFilament-button">Dodaj drukarkę</button>
