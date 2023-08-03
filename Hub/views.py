@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.urls import reverse
 from .forms import FilamentForm
+from .models import Filament
 
 # Create your views here.
 class IndexView(View):
@@ -43,8 +44,8 @@ class AddProject(View):
 class FilamentList(View):
 
     def get(self, request):
-        """filaments = Filament.object.all()"""
-        return render(request, 'filament_liest.html')
+        filaments = Filament.objects.all()
+        return render(request, 'filament_list.html', {'filaments': filaments})
 
 class AddFilament(View):
     def get(self, request):

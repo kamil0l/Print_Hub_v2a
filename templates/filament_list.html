@@ -37,7 +37,32 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <table class="filament-table">
+                <thead>
+                    <tr>
+                        <th>Nazwa filamentu</th>
+                        <th>Producent</th>
+                        <th>Materiał</th>
+                        <th>Kolor</th>
+                        <th>Temp. min</th>
+                        <th>Temp. max</th>
+                        <th>Waga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for filament in filaments %}
+                    <tr>
+                        <td>{{ filament.name }}</td>
+                        <td>{{ filament.producer }}</td>
+                        <td>{{ filament.material }}</td>
+                        <td>{{ filament.colour }}</td>
+                        <td>{{ filament.temperature_min }}</td>
+                        <td>{{ filament.temperature_max }}</td>
+                        <td>{{ filament.weight }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 

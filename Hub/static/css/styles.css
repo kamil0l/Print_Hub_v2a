@@ -210,3 +210,18 @@ body {
 .form-field {
     margin-bottom: 20px;
 }
+.filament-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.filament-table th, .filament-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.filament-table th {
+    background-color: #f2f2f2;
+}
