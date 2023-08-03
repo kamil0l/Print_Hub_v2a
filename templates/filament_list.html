@@ -65,14 +65,14 @@
                         <td>
                             <form method="post" action="{% url 'delete_filament' filament.id %}">
                                 {% csrf_token %}
-                                <button type="submit" class="delete-button">Usuń</button>
+                                <button type="submit">Usuń</button>
                             </form>
                         </td>
                         <td>
-                            <form method="post" action="{% url 'delete_filament' filament.id %}">
+                            <form method="post" action="{% url 'edit_filament' filament.id %}">
                                 {% csrf_token %}
-                                <button type="submit" class="delete-button">
-                                    <a href="{% url 'edit_filament' filament.id %}" class="delete-button">Edytuj</a>
+                                <button type="submit">
+                                    <a href="{% url 'edit_filament' filament.id %}">Edytuj</a>
                                 </button>
                             </form>
                         </td>

@@ -37,7 +37,48 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <h2>DRUKARKI</h2>
+
+            <table class="printer-table">
+                <thead>
+                    <tr>
+                        <th>Fotografia</th>
+                        <th>Opis</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for printer in printers %}
+                    <tr>
+                        <td><img src="{{ printer.image.url }}" alt="{{ printer.name }}" width="150" height="150"></td>
+                        <td>
+                            <h3>{{ printer.name }}</h3>
+                            <p>Liczba głowic: {{ printer.head }}</p>
+                            <p>Maksymalna temperatura: {{ printer.max_temperature }}</p>
+                            <p>Maks. prędkość druku: {{ printer.max_speed }}</p>
+                        </td>
+                        <td>
+                            <div>
+                                <button type="submit">
+                                    <a href="{% url 'edit_printer' printer.id %}" class="edit-button">Edytuj</a>
+                            </div>
+                            <br>
+                            <div>
+                                <form method="post" action="{% url 'delete_printer' printer.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-button">Usuń</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <button type="button" onclick="window.location.href='{% url 'add_printer' %}';" class="submit-addFilament-button">Dodaj drukarkę</button>
         </div>
     </div>
 

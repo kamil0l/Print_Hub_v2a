@@ -225,3 +225,24 @@ body {
 .filament-table th {
     background-color: #f2f2f2;
 }
+
+.printer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.printer-table th, .printer-table td {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+}
+
+.printer-table img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+
+
+
