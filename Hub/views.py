@@ -41,6 +41,11 @@ class DeletePrinter(View):
         printer.delete()
         return redirect('printer_list')
 
+class PrinterDetail(View):
+    def get(self, request, printer_id):
+        printer = get_object_or_404(Printer, id=printer_id)
+        return render(request, 'printer_detail.html', {'printer': printer})
+
 class EditPrinter(View):
 
     def get(self, request, printer_id):

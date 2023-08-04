@@ -32,6 +32,7 @@
             <a href="{% url 'printer_list' %}" class="menu-link"><b>Moje drukarki</b></a>
             <a href="{% url 'add_printer' %}" class="menu-link">↳  dodaj drukarkę</a>
             <a href=" " class="menu-link">↳  edytuj drukarkę</a>
+            <a href=" " class="menu-link">↳  szczegóły drukarki</a>
             <a href="{% url 'project' %}" class="menu-link">Moje projekty</a>
             <a href="{% url 'filament' %}" class="menu-link">Filamenty</a>
             <a href="{% url 'parts' %}" class="menu-link">Części</a>
@@ -67,6 +68,11 @@
                                     {% csrf_token %}
                                     <button type="submit" class="delete-button">Usuń</button>
                                 </form>
+                            </div>
+                            <br>
+                            <div>
+                                <button type="submit">
+                                    <a href="{% url 'printer_detail' printer.id %}" >Szczegóły</a>
                             </div>
                         </td>
                     </tr>
