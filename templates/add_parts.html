@@ -50,8 +50,11 @@
                 </div>
 
                 <div class="form-field">
-                    <label for="{{ form.printer.id_for_label }}">Przypisz do drukarki:</label>
-                    {{ form.printer }}
+                    <label>Przypisz do drukarki:</label><br>
+                    {% for printer in printers %}
+                    <input type="checkbox" id="printer_{{ printer.id }}" name="printers" value="{{ printer.id }}">
+                    <label for="printer_{{ printer.id }}">{{ printer.name }}</label><br>
+                    {% endfor %}
                 </div>
 
                 <button type="submit" class="submit-addFilament-button">Dodaj część</button>

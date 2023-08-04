@@ -30,5 +30,5 @@ class Project(models.Model):
 class Parts(models.Model):
     name = models.CharField(max_length=123)
     description = models.CharField(max_length=256)
-    printer = models.ForeignKey(Printer, on_delete=models.SET_NULL, null=True)
+    printers = models.ManyToManyField(Printer, related_name='parts', blank=True)
 

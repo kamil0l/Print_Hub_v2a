@@ -101,12 +101,16 @@ class PartsList(View):
 class AddParts(View):
     def get(self, request):
         form = PartsForm()
-        return render(request, 'add_parts.html', {'form': form})
+        printers = Printer.objects.all()
+        return render(request, 'add_parts.html', {'form': form, 'printers': printers})
 
     def post(self, request):
         form = PartsForm(request.POST)
         if form.is_valid():
-            form.save()
+            part = form.save()
+            selected_printers = form.cleaned_data.get('printers')
+            if selected_printers:
+                part.printers.set(selected_printers)
             return redirect('parts')
         return render(request, 'add_parts.html', {'form': form})
 

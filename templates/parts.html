@@ -37,12 +37,12 @@
         </div>
 
         <div class="right-container">
-            <table class="printer-table">
+            <table class="filament-table">
                 <thead>
                     <tr>
                         <th>Nazwa</th>
                         <th>Opis</th>
-                        <th>Drukarka</th>
+                        <th>Drukarki</th>
                         <th>Akcje</th>
                     </tr>
                 </thead>
@@ -51,7 +51,13 @@
                     <tr>
                         <td>{{ part.name }}</td>
                         <td>{{ part.description }}</td>
-                        <td>{{ part.printer }}</td>
+                        <td>
+                            {% for printer in part.printers.all %}
+                                {{ printer.name }}{% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                                Brak przypisanych drukarek
+                            {% endfor %}
+                        </td>
                         <td>
                             <form method="post" action="{% url 'delete_part' part.id %}">
                                 {% csrf_token %}

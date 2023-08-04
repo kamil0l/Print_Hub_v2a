@@ -13,8 +13,13 @@ class PrinterForm(forms.ModelForm):
         fields = ('name', 'head', 'max_temperature', 'max_speed', 'image')
 
 class PartsForm(forms.ModelForm):
-    printer = forms.ModelChoiceField(queryset=Printer.objects.all(), required=False)
+    printers = forms.ModelMultipleChoiceField(
+        queryset=Printer.objects.all(),  # Pobierz dostępne drukarki
+        widget=forms.CheckboxSelectMultiple,  # Użyj checkboxów
+        label="Przypisz do drukarki",
+        required=False  # Nie wymagaj wyboru
+    )
 
     class Meta:
         model = Parts
-        fields = ('name', 'description', 'printer')
+        fields = ['name', 'description', 'printers']
