@@ -30,5 +30,7 @@ class Project(models.Model):
 class Parts(models.Model):
     name = models.CharField(max_length=123)
     description = models.CharField(max_length=256)
-    printers = models.ManyToManyField(Printer, related_name='parts', blank=True)
+    printers = models.ManyToManyField(Printer)
 
+    def __str__(self):
+        return self.name
