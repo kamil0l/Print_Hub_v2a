@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.urls import reverse
-from .forms import FilamentForm, PrinterForm, PartsForm
-from .models import Filament, Printer, Parts
+from .forms import FilamentForm, PrinterForm, PartsForm, AddProjectForm
+from .models import Filament, Printer, Parts, Project
 
 class IndexView(View):
 
@@ -63,16 +63,28 @@ class EditPrinter(View):
 
 
 class ProjectList(View):
-
     def get(self, request):
-        """projects = Project.objects.all()"""
-        return render(request, 'project_list.html')
+        projects = Project.objects.all()
+        return render(request, 'project_list.html', {'projects': projects})
 
 class AddProject(View):
-
     def get(self, request):
-        """form = AddProjectForm()"""
-        return render(request, 'add_project.html')
+        form = AddProjectForm()
+        filaments = Filament.objects.all()
+        return render(request, 'add_project.html', {'form': form, 'filaments': filaments})
+
+    def post(self, request):
+        form = AddProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('project')
+        return render(request, 'add_project.html', {'form': form})
+
+class DeleteProject(View):
+    def post(self, request, project_id):
+        project = get_object_or_404(Project, id=project_id)
+        project.delete()
+        return redirect('project')
 
 class FilamentList(View):
 

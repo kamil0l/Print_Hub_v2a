@@ -14,6 +14,7 @@ urlpatterns = [
     path('addPrinter/', views.AddPrinter.as_view(), name= 'add_printer'),
     path('project/', views.ProjectList.as_view(), name= 'project'),
     path('addProject/', views.AddProject.as_view(), name= 'add_project'),
+    path('delete-project/<int:project_id>/', views.DeleteProject.as_view(), name='delete_project'),
     path('filament/', views.FilamentList.as_view(), name= 'filament'),
     path('addFilament/', views.AddFilament.as_view(), name= 'add_filament'),
     path('parts/', views.PartsList.as_view(), name='parts'),

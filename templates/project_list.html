@@ -37,7 +37,35 @@
         </div>
 
         <div class="right-container">
-            <p>ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  ZAWARTOŚĆ  </p>
+            <table class="filament-table">
+                <thead>
+                    <tr>
+                        <th>Zdjęcie projektu</th>
+                        <th>Opis</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in projects %}
+                    <tr>
+                        <td><img src="{{ project.image.url }}" alt="{{ project.name }}" width="150" height="150"></td>
+                        <td>
+                            <h3>{{ project.name }}</h3>
+                            <p>Drukarka: <b>{{ project.printer }}</b></p>
+                            <p>Materiał: <b>{{ project.material }}</b></p>
+                            <p>Potrzebny filament: <b>{{ project.filament_needed }}</b> gram</p>
+                            <p>Czas wydruku: <b>{{ project.print_time }}</b> minut</p>
+                        </td>
+                        <td>
+                            <form method="post" action="{% url 'delete_project' project.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 

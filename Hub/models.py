@@ -22,10 +22,19 @@ class Filament(models.Model):
     temperature_max = models.IntegerField()
     weight = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.name} ({self.colour}) - {self.weight}g"
+
 class Project(models.Model):
     name = models.CharField(max_length=256)
     printer = models.ForeignKey(Printer, on_delete=models.SET_NULL, null=True)
     material = models.ForeignKey(Filament, on_delete=models.SET_NULL, null=True)
+    filament_needed = models.IntegerField(default=0)
+    print_time = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='project_images/', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 class Parts(models.Model):
     name = models.CharField(max_length=123)

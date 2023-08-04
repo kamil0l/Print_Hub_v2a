@@ -1,6 +1,6 @@
 # w pliku forms.py
 from django import forms
-from .models import Filament, Printer, Parts
+from .models import Filament, Printer, Parts, Project
 
 class FilamentForm(forms.ModelForm):
     class Meta:
@@ -23,3 +23,17 @@ class PartsForm(forms.ModelForm):
     class Meta:
         model = Parts
         fields = ['name', 'description', 'printers']
+
+class AddProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['name', 'printer', 'material', 'filament_needed', 'print_time', 'image']
+        labels = {
+            'name': 'Nazwa',
+            'printer': 'Drukarka',
+            'material': 'Materiał',
+            'filament_needed': 'Potrzebny filament (g)',
+            'print_time': 'Czas wydruku (min)',
+            'image': 'Zdjęcie',
+        }
+
